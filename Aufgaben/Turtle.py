@@ -13,6 +13,15 @@ def turtle_rect(startx=150, starty=150, size=50):
         tu.forward(size)
         tu.left(90)
 
+def turtle_tri (startx=150, starty=150, size=50):      
+    # Positioniere an der Startposition
+    tu.penup()
+    tu.goto(startx, starty)
+    tu.pendown()
+    for i in range (0,3):
+        tu.forward(size)
+        tu.left(120)
+
 # Initialisieren
 tu.setup (width=600, height=400)
 
@@ -22,7 +31,9 @@ for i in range(20):
     starty = rnd.randrange(-150,150)
     # Wähle eine zufällige Größe zwischen 10 und 50 Seitenlänge
     size = rnd.randrange(10,50)
-    turtle_rect(startx, starty, size)
+    # wähle eine zufällige Funktion
+    func = rnd.choice((turtle_rect, turtle_tri))
+    func(startx, starty, size)
 
 # Fenster erst bei Click schliessen
 tu.exitonclick()
